@@ -1,0 +1,667 @@
+/* Variables */
+:root {
+    --x-pink: #f10d87;
+    --black: #000000;
+    --white: #ffffff;
+    --gray-800: #202327;
+    /* Dark borders/separators */
+    --gray-900: #16181b;
+    /* Trends/Subscribe background */
+    --gray-950: #0a0a0a;
+    /* Hover background */
+    --gray-500: #71767b;
+    /* Secondary text */
+    --blue-400: #3b82f6;
+    /* Comment hover color */
+    --green-400: #10b981;
+    /* Repost hover color */
+    --red-400: #ef4444;
+    /* Like hover color */
+}
+
+/* Base Styles */
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* Main Container (Grid/Flex for 3 columns) */
+.main-container {
+    display: flex;
+    max-width: 1280px;
+    /* Equivalent to max-w-7xl */
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0px;
+    /* Equivalent to lg:gap-8 */
+}
+
+/* Sidebar Column (Column 1) */
+.sidebar-column {
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    /* Align to the right for icon-only mode */
+    padding: 16px 8px;
+    /* px-2 py-4 */
+    height: 100vh;
+    position: sticky;
+    top: 0;
+
+}
+
+/* Logo Box Hover Effect */
+.logo-box {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 8px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* rounded-full */
+    cursor: pointer;
+}
+
+.logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* CUSTOM LOGO CHANGES START HERE */
+.logo-box:hover {
+    background-color: var(--x-pink);
+    /* Make background pink on hover */
+}
+
+.logo-box:hover .x-icon {
+    color: var(--white);
+    /* Ensure icon/logo color remains white for contrast */
+}
+
+/* CUSTOM LOGO CHANGES END HERE */
+
+
+.x-icon {
+    width: 28px;
+    height: 28px;
+    color: var(--white);
+    transition: color 0.2s;
+}
+
+
+/* Sidebar Options */
+.sidebar-options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sidebar-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    border-radius: 9999px;
+    /* rounded-full */
+    transition: background-color 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--white);
+    width: fit-content;
+    /* Default to fit content */
+}
+
+/* UPDATED: Sidebar Option Hover Effect */
+.sidebar-option:hover {
+    background-color: rgba(241, 13, 135, 0.1);
+    /* Transparent pink on hover */
+}
+
+.sidebar-option:hover .option-text,
+.sidebar-option:hover .option-icon {
+    color: var(--x-pink);
+    /* Pink text/icon on hover */
+}
+
+.option-icon {
+    font-size: 24px;
+    /* text-2xl */
+    margin-right: 16px;
+    transition: color 0.2s;
+}
+
+.option-text {
+    display: none;
+    /* hidden by default, shown on large screens */
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.bold-text {
+    font-weight: 700;
+}
+
+.logout-option {
+    margin-top: 192px;
+    /* Arbitrary spacing to push it down (mt-72 equivalent) */
+}
+
+
+/* Feed Column (Column 2) */
+.feed-column {
+    width: 100%;
+    /* Full width on mobile */
+    max-width: 600px;
+    /* Specific width for desktop feed (sm:w-[600px]) */
+    border-left: 1px solid var(--gray-800);
+    border-right: 1px solid var(--gray-800);
+}
+
+.feed-header {
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 16px;
+    border-bottom: 1px solid var(--gray-800);
+    z-index: 10;
+}
+
+.feed-header-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Post Bar */
+.post-bar {
+    display: flex;
+    padding: 16px;
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    object-fit: cover;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.post-area {
+    flex-grow: 1;
+}
+
+.post-input {
+    width: 100%;
+    background-color: var(--black);
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 20px;
+    color: var(--white);
+    padding-top: 4px;
+}
+
+.post-input::placeholder {
+    color: var(--gray-500);
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(32, 35, 39, 0.5);
+    /* gray-800/50 */
+}
+
+.action-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.action-icon {
+    color: var(--x-pink);
+    font-size: 20px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.action-icon:hover {
+    opacity: 0.8;
+}
+
+.tweet-button {
+    background-color: var(--x-pink);
+    color: var(--white);
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+}
+
+.tweet-button:hover {
+    background-color: color-mix(in srgb, var(--x-pink) 90%, black);
+    /* Equivalent to hover:bg-x-pink/90 */
+}
+
+/* Tweet Card */
+.tweet-card {
+    display: flex;
+    padding: 16px;
+    border-bottom: 1px solid var(--gray-800);
+    transition: background-color 0.1s;
+    cursor: pointer;
+}
+
+.tweet-card:hover {
+    background-color: var(--gray-950);
+}
+
+.tweet-content {
+    flex-grow: 1;
+}
+
+.tweet-meta {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.tweet-name {
+    font-weight: 700;
+    margin-right: 8px;
+}
+
+.tweet-handle,
+.tweet-time {
+    color: var(--gray-500);
+    margin-right: 8px;
+}
+
+.tweet-text {
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.tweet-actions {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray-500);
+    font-size: 14px;
+}
+
+.action-stat {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.action-svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+}
+
+.comment-stat:hover {
+    color: var(--blue-400);
+}
+
+.repost-stat:hover {
+    color: var(--green-400);
+}
+
+.like-stat:hover {
+    color: var(--red-400);
+}
+
+.share-stat:hover {
+    color: var(--x-pink);
+}
+
+
+/* Trends Column (Column 3) */
+.trends-column {
+    display: none;
+    /* Hidden on small/medium screens */
+    width: 350px;
+    /* Fixed width for right column on desktop (xl:w-1/3 is about 33%) */
+    padding-top: 8px;
+}
+
+.search-bar-container {
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    background-color: var(--black);
+    z-index: 10;
+}
+
+.search-input {
+    width: 100%;
+    background-color: var(--gray-900);
+    border: 1px solid var(--gray-800);
+    border-radius: 9999px;
+    padding: 8px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    color: var(--white);
+    font-size: 14px;
+}
+
+.search-input:focus {
+    border-color: var(--x-pink);
+}
+
+.trends-module {
+    background-color: var(--gray-900);
+    border-radius: 12px;
+    margin-top: 16px;
+    padding: 16px;
+}
+
+.module-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.module-text {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+}
+
+.subscribe-button {
+    padding: 6px 16px;
+}
+
+.border-bottom {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.trend-item {
+    padding: 16px;
+    transition: background-color 0.1s;
+    cursor: pointer;
+}
+
+.trend-item:hover {
+    background-color: var(--gray-800);
+}
+
+.trend-category {
+    font-size: 12px;
+    color: var(--gray-500);
+}
+
+.trend-name {
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.trend-tweets {
+    font-size: 12px;
+    color: var(--gray-500);
+}
+
+.last-trend-item {
+    border-radius: 0 0 12px 12px;
+    /* Rounded bottom corners */
+}
+
+/* EXPLORE PAGE STYLES */
+/* EXPLORE PAGE STYLES */
+.explore-search-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.explore-search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-500);
+    pointer-events: none;
+    transition: color 0.2s;
+}
+
+.explore-search-input {
+    width: 100%;
+    padding: 12px 12px 12px 48px;
+    border-radius: 9999px;
+    border: 1px solid var(--gray-800);
+    background-color: var(--gray-900);
+    color: var(--white);
+    outline: none;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.explore-search-input:focus {
+    background-color: var(--black);
+    border-color: var(--x-pink);
+    box-shadow: 0 0 0 1px var(--x-pink);
+}
+
+.explore-search-container:focus-within .explore-search-icon {
+    color: var(--x-pink);
+}
+
+
+/* PROFILE PAGE STYLES */
+.profile-header {
+    position: relative;
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.cover-image {
+    height: 200px;
+    background-color: var(--gray-800);
+    background-image: url('https://placehold.co/600x200/333333/ffffff?text=Cover+Image');
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-avatar-container {
+    position: absolute;
+    top: 130px;
+    /* 200px (cover) - 70px (half avatar roughly) */
+    left: 16px;
+    width: 134px;
+    height: 134px;
+    border-radius: 50%;
+    background-color: var(--black);
+    /* Border effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-avatar {
+    width: 126px;
+    height: 126px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--black);
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 12px 16px;
+    min-height: 50px;
+    /* Space for avatar */
+}
+
+.edit-profile-btn {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--gray-500);
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.edit-profile-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-info {
+    padding: 0 16px 16px 16px;
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.profile-handle {
+    color: var(--gray-500);
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.profile-bio {
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.profile-metadata {
+    display: flex;
+    gap: 16px;
+    color: var(--gray-500);
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 15px;
+}
+
+.stat-count {
+    font-weight: 700;
+    color: var(--white);
+}
+
+.stat-label {
+    color: var(--gray-500);
+}
+
+.profile-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--gray-800);
+}
+
+.profile-tab {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 500;
+    color: var(--gray-500);
+    position: relative;
+}
+
+.profile-tab:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-tab.active {
+    color: var(--white);
+    font-weight: 700;
+}
+
+.profile-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    /* Fixed width underline */
+    height: 4px;
+    background-color: var(--x-pink);
+    border-radius: 4px;
+}
+
+
+
+/* Responsive Design (Media Queries) */
+
+/* Small screens (sm: 640px and up) - Sidebar appears, but is icon-only and feed shrinks */
+@media (min-width: 640px) {
+    .sidebar-column {
+        display: flex;
+        /* Width adjusted for icon-only mode */
+        width: 50px;
+    }
+}
+
+/* Large screens (lg: 1024px and up) - Full sidebar and trends column appear */
+@media (min-width: 1024px) {
+    .main-container {
+        gap: 20px;
+    }
+
+    .sidebar-column {
+        align-items: flex-start;
+        width: 25%;
+        /* lg:w-1/4 */
+    }
+
+    .option-text {
+        display: inline;
+    }
+
+    .trends-column {
+        display: block;
+        width: 300px;
+        /* lg:w-1/4, but fixed width looks better */
+    }
+}
+
+/* Extra Large screens (xl: 1280px and up) */
+@media (min-width: 1280px) {
+    .sidebar-column {
+        width: 20%;
+        /* xl:w-1/5 */
+    }
+
+    .trends-column {
+        width: 350px;
+        /* xl:w-1/3 */
+    }
+}

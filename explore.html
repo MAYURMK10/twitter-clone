@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore / Loopr</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- Column 1: Sidebar -->
+        <div class="sidebar-column">
+            <div class="sidebar-options-group">
+                <a href="index.html" class="sidebar-option"><span class="option-icon">🏠</span><span
+                        class="option-text">Home</span></a>
+                <a href="#" class="sidebar-option active"><span class="option-icon">🔍</span><span
+                        class="option-text bold-text">Explore</span></a>
+                <a href="#" class="sidebar-option"><span class="option-icon">🔔</span><span
+                        class="option-text">Notifications</span></a>
+                <a href="#" class="sidebar-option"><span class="option-icon">✉️</span><span
+                        class="option-text">Messages</span></a>
+                <a href="profile.html" class="sidebar-option"><span class="option-icon">👤</span><span
+                        class="option-text">Profile</span></a>
+                <a href="#" class="sidebar-option"><span class="option-icon">➕</span><span
+                        class="option-text">More</span></a>
+
+                <a href="#" class="sidebar-option logout-option">
+                    <span class="option-icon">🚪</span>
+                    <span class="option-text">Logout</span>
+                </a>
+
+                <!-- User Profile Card -->
+                <div class="sidebar-profile"
+                    style="margin-top: auto; padding-top: 20px; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <img src="https://placehold.co/40x40/1da1f2/ffffff?text=U" class="profile-pic"
+                        style="border-radius: 50%;">
+                    <div class="sidebar-profile-info">
+                        <div class="sidebar-name" id="sidebar-name" style="font-weight: 700; font-size: 15px;">Loopr
+                            User</div>
+                        <div class="sidebar-handle" id="sidebar-handle"
+                            style="color: var(--gray-500); font-size: 15px;">@loopr_user</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo-box">
+            <img src="loop_logo1.png" alt="loopr_logo">
+        </div>
+
+        <!-- Column 2: Explore Feed -->
+        <div class="feed-column">
+
+            <!-- Search Header - Sticky -->
+            <div class="feed-header" style="padding-bottom: 0;">
+                <div class="explore-search-container">
+                    <i class="fa-solid fa-magnifying-glass explore-search-icon"></i>
+                    <input type="text" id="explore-search" class="explore-search-input" placeholder="Search Loopr">
+                </div>
+
+                <!-- Tabs -->
+                <div class="profile-tabs" style="border-bottom: none; margin-top: 4px;">
+                    <div class="profile-tab active" data-category="foryou">For you</div>
+                    <div class="profile-tab" data-category="trending">Trending</div>
+                    <div class="profile-tab" data-category="news">News</div>
+                    <div class="profile-tab" data-category="sports">Sports</div>
+                    <div class="profile-tab" data-category="entertainment">Entertainment</div>
+                </div>
+            </div>
+
+            <!-- Content Container -->
+            <div id="explore-container">
+                <!-- Trending List Injected JS -->
+                <div class="loading-spinner" style="padding: 20px; text-align: center; color: var(--x-pink);">
+                    <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Column 3: Who to follow -->
+        <div class="trends-column">
+
+            <div class="trends-module trends-list">
+                <h2 class="module-title border-bottom">Who to follow</h2>
+                <!-- Suggested Users -->
+                <div id="who-to-follow-list">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+
+            <nav style="padding: 16px; font-size: 13px; color: var(--gray-500); line-height: 1.5;">
+                <a href="#" style="color: inherit; text-decoration: none; margin-right: 8px;">Terms of Service</a>
+                <a href="#" style="color: inherit; text-decoration: none; margin-right: 8px;">Privacy Policy</a>
+                <a href="#" style="color: inherit; text-decoration: none; margin-right: 8px;">Cookie Policy</a>
+                <a href="#" style="color: inherit; text-decoration: none; margin-right: 8px;">Accessibility</a>
+                <a href="#" style="color: inherit; text-decoration: none; margin-right: 8px;">Ads info</a>
+                <span>© 2026 Loopr Corp.</span>
+            </nav>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+    <script src="explore.js"></script>
+
+    <script>
+        // Bind logout button
+        document.querySelector(".logout-option").addEventListener("click", (e) => {
+            e.preventDefault();
+            logout(); // From auth.js
+        });
+    </script>
+</body>
+
+</html>

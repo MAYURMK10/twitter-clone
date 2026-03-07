@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile / Loopr</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- Column 1: Sidebar -->
+        <div class="sidebar-column">
+            <div class="sidebar-options-group">
+                <a href="index.html" class="sidebar-option"><span class="option-icon">🏠</span><span
+                        class="option-text">Home</span></a>
+                <a href="explore.html" class="sidebar-option"><span class="option-icon">🔍</span><span
+                        class="option-text">Explore</span></a>
+                <a href="#" class="sidebar-option"><span class="option-icon">🔔</span><span
+                        class="option-text">Notifications</span></a>
+                <a href="#" class="sidebar-option"><span class="option-icon">✉️</span><span
+                        class="option-text">Messages</span></a>
+                <a href="#" class="sidebar-option active"><span class="option-icon">👤</span><span
+                        class="option-text bold-text">Profile</span></a>
+                <a href="#" class="sidebar-option"><span class="option-icon">➕</span><span
+                        class="option-text">More</span></a>
+
+                <a href="#" class="sidebar-option logout-option">
+                    <span class="option-icon">🚪</span>
+                    <span class="option-text">Logout</span>
+                </a>
+
+                <!-- User Profile Card -->
+                <div class="sidebar-profile"
+                    style="margin-top: auto; padding-top: 20px; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <img src="https://placehold.co/40x40/1da1f2/ffffff?text=U" class="profile-pic"
+                        style="border-radius: 50%;">
+                    <div class="sidebar-profile-info">
+                        <div class="sidebar-name" id="sidebar-name" style="font-weight: 700; font-size: 15px;">Loopr
+                            User</div>
+                        <div class="sidebar-handle" id="sidebar-handle"
+                            style="color: var(--gray-500); font-size: 15px;">@loopr_user</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo-box">
+            <img src="loop_logo1.png" alt="loopr_logo">
+        </div>
+
+        <!-- Column 2: Profile Feed -->
+        <div class="feed-column">
+
+            <div class="feed-header">
+                <button onclick="window.history.back()"
+                    style="background:none; border:none; color:white; font-size: 20px; cursor: pointer; margin-right: 20px;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <div>
+                    <div class="feed-header-text" id="header-name">Loopr User</div>
+                    <div style="font-size: 13px; color: var(--gray-500);" id="header-count">0 tweets</div>
+                </div>
+            </div>
+
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="cover-image"></div>
+                <div class="profile-avatar-container">
+                    <img src="https://placehold.co/150x150/1da1f2/ffffff?text=U" class="profile-avatar"
+                        id="main-profile-avatar">
+                </div>
+                <div class="profile-actions">
+                    <button class="edit-profile-btn">Edit Profile</button>
+                </div>
+
+                <div class="profile-info">
+                    <div class="profile-name" id="profile-name">Loopr User</div>
+                    <div class="profile-handle" id="profile-handle">@loopr_user</div>
+                    <div class="profile-bio" id="profile-bio">Web Developer & Loopr Enthusiast. Building the future of
+                        social media. 🚀</div>
+
+                    <div class="profile-metadata">
+                        <div class="meta-item"><i class="fa-solid fa-location-dot"></i> <span id="profile-location">San
+                                Francisco, CA</span></div>
+                        <div class="meta-item"><i class="fa-solid fa-calendar-days"></i> <span
+                                id="profile-join-date">Joined December 2025</span></div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <span class="stat-count">142 <span class="stat-label">Following</span></span>
+                        <span class="stat-count">8.5K <span class="stat-label">Followers</span></span>
+                    </div>
+                </div>
+
+                <div class="profile-tabs">
+                    <div class="profile-tab active">Tweets</div>
+                    <div class="profile-tab">Replies</div>
+                    <div class="profile-tab">Highlights</div>
+                    <div class="profile-tab">Media</div>
+                    <div class="profile-tab">Likes</div>
+                </div>
+            </div>
+
+            <!-- Feed Container -->
+            <div id="feed-container">
+                <!-- User's tweets will be injected here -->
+            </div>
+
+        </div>
+
+        <!-- Column 3: Trends / Premium -->
+        <div class="trends-column">
+
+            <div class="search-bar-container">
+                <input type="text" placeholder="Search Loopr" class="search-input">
+            </div>
+
+            <div class="trends-module trends-list">
+                <h2 class="module-title border-bottom">You might like</h2>
+                <!-- Mock Suggestions -->
+                <div class="trend-item">
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <img src="https://placehold.co/40x40/333/fff?text=T"
+                            style="width: 40px; height: 40px; border-radius: 50%;">
+                        <div>
+                            <div style="font-weight: 700;">Tech Insider</div>
+                            <div style="color: var(--gray-500); font-size: 14px;">@techinsider</div>
+                        </div>
+                        <button class="tweet-button"
+                            style="margin-left: auto; padding: 6px 16px; background: white; color: black;">Follow</button>
+                    </div>
+                </div>
+                <div class="trend-item last-trend-item">
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <img src="https://placehold.co/40x40/555/fff?text=D"
+                            style="width: 40px; height: 40px; border-radius: 50%;">
+                        <div>
+                            <div style="font-weight: 700;">Design Daily</div>
+                            <div style="color: var(--gray-500); font-size: 14px;">@designdaily</div>
+                        </div>
+                        <button class="tweet-button"
+                            style="margin-left: auto; padding: 6px 16px; background: white; color: black;">Follow</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trends-module trends-list">
+                <h2 class="module-title border-bottom">Trends for you</h2>
+                <div class="trend-item">
+                    <span class="trend-category">Trending in Technology</span>
+                    <h3 class="trend-name">#AIRevolution</h3>
+                    <span class="trend-tweets">120K Tweets</span>
+                </div>
+                <div class="trend-item last-trend-item">
+                    <span class="trend-category">Sports</span>
+                    <h3 class="trend-name">#WorldCup2024</h3>
+                    <span class="trend-tweets">85K Tweets</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
+
+    <script>
+        // Bind logout button
+        document.querySelector(".logout-option").addEventListener("click", (e) => {
+            e.preventDefault();
+            logout(); // From auth.js
+        });
+    </script>
+</body>
+
+</html>
