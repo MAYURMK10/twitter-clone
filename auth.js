@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
 async function checkSession() {
     const { data: { session }, error } = await supabase.auth.getSession();
     if (!session) {
-        // console.log("No user found, redirecting to login...");
-        // window.location.href = "login.html";
+        // Enforce login for all protected pages
+        window.location.href = "login.html";
     } else {
         const user = session.user;
         const metadata = user.user_metadata || {};

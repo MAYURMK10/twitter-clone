@@ -200,9 +200,9 @@
 
     <script>
         // Bind logout button
-        document.querySelector(".logout-option").addEventListener("click", (e) => {
+        document.querySelector(".logout-option").addEventListener("click", async (e) => {
             e.preventDefault();
-            logout(); // From auth.js
+            await logout(); // From auth.js
         });
     </script>
 </body>
